@@ -1,13 +1,17 @@
+/**
+ * 用户controller（例如登录、注册等操作逻辑在此实现）
+ */
 const UserModel = require('../../models/userinfo')
 const Constant = require('../../utils/constant')
+//时间格式化模块
 const dtime = require('time-formater');
 
 class user {
 
-    //创建用户
-    async createuser(req, res, next) {
-        let username = req.query.username;
-        let userpassword = req.query.userpassword;
+    //注册用户
+    async register(req, res, next) {
+        let username = req.body.username;
+        let userpassword = req.body.userpassword;
         try {
             const userinfo = {
                 user_name: username,

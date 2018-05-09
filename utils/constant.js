@@ -22,4 +22,4 @@ const RESULT = {
 }
 
 exports.RESULT = RESULT
-exports.jwtsecret='dev-secret'
+exports.jwtsecret='base-node-secret'

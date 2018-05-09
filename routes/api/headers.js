@@ -1,5 +1,8 @@
-const jwt= require( 'jsonwebtoken') // 使用jwt签名
-const constant =require("../../utils/constant")
+/**
+ * header请求参数验证
+ */
+const jwt = require('jsonwebtoken') // 使用jwt签名
+const constant = require("../../utils/constant")
 
 //请求数据设备类型
 function apptype(req, res, next) {
@@ -10,7 +13,7 @@ function apptype(req, res, next) {
         res.json({
             code: constant.RESULT.ARG_ERROR.code,
             msg: 'app-type不能为空',
-            // data: {}
+            data: ''
         });
     }
 }
@@ -25,6 +28,7 @@ function token(req, res, next) {
                 res.json({
                     code: constant.RESULT.TOKEN_ERR.code,
                     msg: constant.RESULT.TOKEN_ERR.msg,
+                    data: ''
                 });
             } else {
                 req.decoded = decoded;
@@ -36,6 +40,7 @@ function token(req, res, next) {
         res.json({
             code: constant.RESULT.TOKEN_NO_FIND.code,
             msg: constant.RESULT.TOKEN_NO_FIND.msg,
+            data: ''
         });
     }
 }
