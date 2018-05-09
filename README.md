@@ -7,24 +7,24 @@
 ### **项目介绍**
 > 项目使用Express框架和Mongodb数据库
 ### **项目使用**
-#### clone项目
+#### 1.clone项目
 > git clone https://github.com/LiangLuDev/base-node-server
-#### 依赖模块安装
+#### 2.依赖模块安装
 > npm install
-#### mongodb数据库安装，启动
+#### 3.mongodb数据库安装，启动
 > 安装启动这类教程网上很多，自行查阅
-#### 启动
+#### 4.启动
 > npm start
-#### 测试
+#### 5.测试
 > locahost:3390  访问成功就完毕了。
 ### **项目详解**
- 1. 项目入口
+##### 1. 项目入口
 **app.js**
 - express组件初始化
 - 数据库连接
 - 注册路由
 - node服务启动
- 2. 数据库配置连接
+ ##### 2. 数据库配置连接
  数据库操作（连接、增删改查等）使用mongoose模块，mongoose很好用，我这边只展示最基本的连接操作
 ```
 const mongoose = require('mongoose');
@@ -45,7 +45,7 @@ mongoose功能远远不止这些，
 - [mongoose api英文版（官方）](http://mongoosejs.com/docs/guide.html)
 - [mongoose api中文版（非官方）](https://mongoosedoc.top/docs/index.html)
 - [mongoose api中文版（非官方）](https://github.com/dreamFlyingCat/mongoose-API)
- 3. api主路由
+ ##### 3. api主路由
  api主路由,所有的api数据功能相关在此汇聚，作为主路由会分发到各个功能模块路由
 ```
 /**
@@ -67,7 +67,7 @@ module.exports = app => {
     app.use('/api/address',address)
 }
 ```
- 4. 子路由
+ ##### 4. 子路由
 功能子路由，例如:登录、注册操作在此声明汇聚
 ```
 /**
@@ -82,7 +82,7 @@ router.post('/login',User.login)
 
 module.exports = router
 ```
- 5. controller逻辑数据处理
+ ##### 5. controller逻辑数据处理
  逻辑处理、数据库操作都在此处理。   例：用户注册完毕存入数据库，返回前台注册成功等操作
 ```
 //注册用户
@@ -111,7 +111,7 @@ module.exports = router
     }
 ```
 
- 6. 数据model
+ ##### 6. 数据model
  这里就是mongoose的强大之处，使用mongoose绑定mondel，然后mondel就可以直接对数据库增删改查，数据库字段、索引等等在此声明。
 ```
 /**
